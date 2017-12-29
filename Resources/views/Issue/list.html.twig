@@ -1,0 +1,35 @@
+{% extends '@ValouleloupIssue/Issue/base_issue.html.twig' %}
+
+{% block issue_list_badge %}
+    <span class="badge">{{ issues|length }}</span>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+       <a class="btn btn-success pull-right" href="{{ path('add_issue') }}">Add Issue</a>
+    </div>
+
+    <div class="row">
+        <div class="panel panel-default list-elements">
+
+            <div class="panel-heading"> List issues </div>
+            <div class="panel-body">
+                {% for issue in issues %}
+                    <div class="col-sm-12 single-element">
+                        <div class="col-sm-10 title">
+                            <a href="{{ path('show_issue', {'id': issue.id}) }}">{{ issue.label }}</a> - {{ issue.author.username }}
+                            {% for tag in issue.tags %}
+                                <a href="{{ path('list_issue_tag', {'id': tag.id}) }}" class="label label-warning" style="background-color:#{{ tag.color }};">{{ tag.label }}</a>
+                            {% endfor %}
+                            <p>#{{ issue.id }} created at {{ issue.createdAt|date('d/m/Y H:i:s') }}</p>
+                        </div>
+                        <div class="col-sm-2 infos info-comments text-right">
+                            <a href="{{ path('show_issue', {'id': issue.id}) }}"><span class="glyphicon glyphicon-comment"></span> {{ issue.nbPosts }} comments</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

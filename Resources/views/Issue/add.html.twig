@@ -1,0 +1,22 @@
+{% extends '@ValouleloupIssue/Issue/base_issue.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="panel panel-default send-issue" id="send-issue">
+
+            <div class="panel-heading">New Issue</div>
+            <div class="panel-body">
+                <div class="form">
+                    {{ form_start(form) }}
+                    {{ form_row(form.label) }}
+                    {{ form_row(form.body, {'attr': {'cols': '120', 'rows': '10'}}) }}
+                    {{ form_row(form.theme) }}
+                    {{ form_row(form.tags) }}
+                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-success btn-submit pull-right'}, 'label' : 'Add Issue'}) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

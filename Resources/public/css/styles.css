@@ -1,0 +1,253 @@
+body{
+    font-family: 'Open Sans', sans-serif !important;
+}
+header{
+    background:#24292e;
+    color:#bbb;
+    padding:10px;
+}
+form label{
+    margin-right:10px;
+}
+form>div{
+    margin:10px 0;
+}
+input[type=text]{
+    width:400px;
+    border-radius:3px;
+    border:1px solid #ddd;
+    background-color:#FCFCFC;
+}
+textarea{
+    border-radius:3px;
+    border:1px solid #ddd;
+    background-color:#FCFCFC;
+}
+.top-body{
+    background:#fafbfc;
+    border-bottom: 1px solid #e1e4e8;
+    padding-bottom: -10px;
+    padding-top: 4px;
+}
+.top-body>.container>.nav{
+    margin-bottom: -1px;
+}
+.top-body h4{
+    margin:24px 0;
+}
+.top-body h4 a{
+    cursor: pointer;
+}
+.body{
+    padding-top:12px;
+}
+.row{
+    margin:4px 0;
+}
+.nav a{
+    color:#555;
+    outline:none;
+}
+.nav li a{
+    padding: 9px 15px;
+}
+.badge{
+    background-color: #ddd;
+    color:#555;
+}
+.top-body .nav-tabs li.active a{
+    box-shadow:0 3px 0 0 #e36209 inset;
+    cursor:pointer;
+}
+.btn-submit{
+    margin:10px 0;
+}
+.panel-heading{
+    background-color: #f6f8fa !important;
+}
+.send-post .panel-heading{
+    padding-bottom:0;
+}
+.send-post .nav{
+    margin-bottom: -1px;
+}
+.send-post textarea{
+    padding:10px 10px;
+}
+.list-posts{
+    padding:0;
+}
+.list-elements{
+    margin:10px 0;
+}
+.list-elements .panel-body{
+    padding:0;
+}
+.list-elements .single-element{
+    border-bottom:1px solid #ddd;
+    padding:10px;
+}
+.list-elements .single-element .title p{
+    font-size:10px;
+    color:#777;
+    margin:2px 0 0 0;
+}
+.list-elements .single-element .infos{
+    font-size:12px;
+    color:#888;
+    padding-top:2px;
+}
+.list-elements .single-element .infos a{
+    color:#888;
+}
+.list-elements .glyphicon{
+    top:2px
+}
+.post-left img{
+    max-width:60px;
+}
+footer{
+    font-size:12px;
+    color: #777;
+}
+footer .container{
+    padding:20px 0;
+}
+footer ul{
+    padding:0;
+}
+footer ul li {
+    display:inline;
+    padding:4px 16px;
+}
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #a67f59;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}

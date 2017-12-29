@@ -1,0 +1,24 @@
+{
+    "name": "valouleloup/issue-bundle",
+    "description": "Issue Bundle",
+    "type": "library",
+    "require": {
+        "php": ">=5.3.0",
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/orm": "^2.5",
+        "symfony/symfony": "3.4.*",
+        "league/commonmark": "^0.16.0",
+        "gedmo/doctrine-extensions": "^2.4"
+    },
+    "authors": [
+        {
+            "name": "Valentin",
+            "email": "valentin.faugeroux@biig.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Valouleloup\\IssueBundle\\": ""
+        }
+    }
+}

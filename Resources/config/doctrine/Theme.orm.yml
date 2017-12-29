@@ -1,0 +1,26 @@
+Valouleloup\IssueBundle\Entity\Theme:
+    type: entity
+    table: valou_theme
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        label:
+            type: text
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+
+    oneToMany:
+        issues:
+            targetEntity: Valouleloup\IssueBundle\Entity\Issue
+            mappedBy: theme
+            cascade: ["persist"]

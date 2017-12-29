@@ -1,0 +1,7 @@
+{% extends '@ValouleloupIssue/base.html.twig' %}
+
+{% block body_nav_tags %}
+    <li class="active">
+        <a href="{{ path('list_tags') }}">Tags {% block tag_list_badge %}{% endblock %}</a>
+    </li>
+{% endblock %}

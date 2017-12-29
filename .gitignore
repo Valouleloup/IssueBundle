@@ -1,0 +1,4 @@
+vendor/
+.composer/*
+.bash_history
+.idea/*

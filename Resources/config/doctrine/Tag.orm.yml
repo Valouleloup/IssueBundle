@@ -1,0 +1,18 @@
+Valouleloup\IssueBundle\Entity\Tag:
+    type: entity
+    table: valou_tag
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        label:
+            type: text
+        color:
+            type: text
+            nullable: true
+
+    manyToMany:
+        issues:
+          targetEntity: Valouleloup\IssueBundle\Entity\Issue
+          mappedBy: tags

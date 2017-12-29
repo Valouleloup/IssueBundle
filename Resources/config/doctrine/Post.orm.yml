@@ -1,0 +1,29 @@
+Valouleloup\IssueBundle\Entity\Post:
+    type: entity
+    table: valou_post
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        body:
+            type: text
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+
+    manyToOne:
+        issue:
+            targetEntity: Valouleloup\IssueBundle\Entity\Issue
+            cascade: ["persist"]
+            inversedBy: posts
+        author:
+            targetEntity: Symfony\Component\Security\Core\User\UserInterface
+            cascade: ["persist"]

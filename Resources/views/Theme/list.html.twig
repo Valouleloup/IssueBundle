@@ -1,0 +1,31 @@
+{% extends '@ValouleloupIssue/Theme/base_theme.html.twig' %}
+
+{% block theme_list_badge %}
+    <span class="badge">{{ themes|length }}</span>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <a class="btn btn-success pull-right" href="{{ path('add_theme') }}">Add Theme</a>
+    </div>
+
+    <div class="row">
+        <div class="panel panel-default list-elements">
+
+            <div class="panel-heading"> List themes </div>
+            <div class="panel-body">
+                {% for theme in themes %}
+                    <div class="col-sm-12 single-element">
+                        <div class="col-sm-10 title">
+                            <a href="{{ path('list_issue_theme', {'id': theme.id}) }}">{{ theme.label }}</a>
+                        </div>
+                        <div class="col-sm-2 infos info-comments text-right">
+                            {{ theme.nbPosts }} comments
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,56 @@
+show_issue:
+    defaults: { _controller: "ValouleloupIssueBundle:Issue:show" }
+    methods: [GET]
+    options:
+        expose: true
+    path: "/{id}"
+    requirements:
+        id: \d+
+
+show_issue_new_post:
+    defaults: { _controller: "ValouleloupIssueBundle:Issue:showNewPost" }
+    methods: [POST]
+    options:
+        expose: true
+    path: "/{id}"
+    requirements:
+        id: \d+
+
+list_issue:
+    defaults: { _controller: "ValouleloupIssueBundle:Issue:list" }
+    methods: [GET]
+    options:
+        expose: true
+    path: ""
+
+list_issue_tag:
+    defaults: { _controller: "ValouleloupIssueBundle:Issue:listTag" }
+    methods: [GET]
+    options:
+        expose: true
+    path: "/tag/{id}"
+    requirements:
+        id: \d+
+
+list_issue_theme:
+    defaults: { _controller: "ValouleloupIssueBundle:Issue:listTheme" }
+    methods: [GET]
+    options:
+        expose: true
+    path: "/theme/{id}"
+    requirements:
+        id: \d+
+
+add_issue:
+    defaults: { _controller: "ValouleloupIssueBundle:Issue:new" }
+    methods: [GET]
+    options:
+        expose: true
+    path: "/new"
+
+create_issue:
+    defaults: { _controller: "ValouleloupIssueBundle:Issue:create" }
+    methods: [POST]
+    options:
+        expose: true
+    path: "/create"

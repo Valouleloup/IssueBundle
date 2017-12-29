@@ -1,0 +1,74 @@
+{% extends '@ValouleloupIssue/Issue/base_issue.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <h2>{{ issue.label }}</h2>
+        <h4><span class="label label-success">Open</span></h4>
+        <p>{{ issue.author.username }}</p>
+        {% for tag in issue.tags %}
+            <span class="label label-warning" style="background-color:#{{ tag.color }};">{{ tag.label }}</span>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-1 post-left">
+            <img src="{{ asset('33849138.png') }}">
+        </div>
+
+        <div class="panel panel-default col-sm-11 list-posts">
+
+            <div class="panel-heading">
+                {{ issue.author.username }} commented at {{ issue.createdAt|date('d/m/Y H:i:s') }}
+            </div>
+            <div class="panel-body">
+                <p>{{ issue.body | raw }}</p>
+            </div>
+
+        </div>
+
+    {% for post in issue.posts %}
+        <div class="col-sm-1 post-left">
+            <img src="{{ asset('33849138.png') }}">
+        </div>
+
+        <div class="panel panel-default col-sm-11 list-posts">
+
+            <div class="panel-heading">
+                {{ post.author.username }} commented at {{ post.createdAt|date('d/m/Y H:i:s') }}
+                {% if post.author.id == app.user.id %}
+                    <a href="{{ path('edit_post', {'id': post.id}) }}" class="pull-right">Edit</a>
+                {% endif %}
+            </div>
+            <div class="panel-body">
+                <p>{{ post.body | raw }}</p>
+            </div>
+
+        </div>
+    {% endfor %}
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="panel panel-default send-post" id="send-post">
+
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#">Write</a></li>
+                    <li><a href="#">Preview</a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <div class="form">
+                    {{ form_start(form) }}
+                    {{ form_widget(form.body, {'attr': {'class': 'col-sm-12'}}) }}
+                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-success btn-submit pull-right'}, 'label' : 'Comment'}) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

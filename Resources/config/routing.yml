@@ -1,0 +1,19 @@
+valouleloup_issue_homepage:
+    path:     /
+    defaults: { _controller: ValouleloupIssueBundle:Default:index }
+
+issue:
+    resource: "routing/issue.yml"
+    prefix:   /issues
+
+post:
+    resource: "routing/post.yml"
+    prefix:   /posts
+
+tag:
+    resource: "routing/tag.yml"
+    prefix:   /tags
+
+theme:
+    resource: "routing/theme.yml"
+    prefix:   /themes

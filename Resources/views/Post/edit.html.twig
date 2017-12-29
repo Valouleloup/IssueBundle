@@ -1,0 +1,19 @@
+{% extends '@ValouleloupIssue/base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="panel panel-default send-issue" id="send-issue">
+
+            <div class="panel-heading">Edit Post</div>
+            <div class="panel-body">
+                <div class="form">
+                    {{ form_start(form) }}
+                    {{ form_row(form.body, {'attr': {'cols': '120', 'rows': '10'}}) }}
+                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-success btn-submit pull-right'}, 'label' : 'Edit Post'}) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

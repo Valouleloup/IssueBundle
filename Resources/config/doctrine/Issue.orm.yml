@@ -1,0 +1,54 @@
+Valouleloup\IssueBundle\Entity\Issue:
+    type: entity
+    table: valou_issue
+    repositoryClass: Valouleloup\IssueBundle\Repository\IssueRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        label:
+            type: text
+        body:
+            type: text
+        state:
+            type: integer
+            nullable: true
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+
+    oneToMany:
+        posts:
+            targetEntity: Valouleloup\IssueBundle\Entity\Post
+            mappedBy: issue
+            cascade: ["persist", "remove"]
+
+    manyToOne:
+        author:
+            targetEntity: Symfony\Component\Security\Core\User\UserInterface
+            cascade: ["persist"]
+        theme:
+            targetEntity: Valouleloup\IssueBundle\Entity\Theme
+            cascade: ["persist"]
+            inversedBy: issues
+
+    manyToMany:
+        tags:
+            targetEntity: Valouleloup\IssueBundle\Entity\Tag
+            inversedBy: issues
+            joinTable:
+                name: issues_tags
+                joinColumns:
+                    issue_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    tag_id:
+                        referencedColumnName: id

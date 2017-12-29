@@ -1,0 +1,27 @@
+add_post:
+    defaults: { _controller: "ValouleloupIssueBundle:Post:new" }
+    methods: [GET]
+    options:
+        expose: true
+    path: "/"
+
+create_post:
+    defaults: { _controller: "ValouleloupIssueBundle:Post:create" }
+    methods: [POST]
+    options:
+        expose: true
+    path: "/"
+
+edit_post:
+    defaults: { _controller: "ValouleloupIssueBundle:Post:edit" }
+    methods: [GET]
+    options:
+        expose: true
+    path: "/{id}/edit"
+
+update_post:
+    defaults: { _controller: "ValouleloupIssueBundle:Post:update" }
+    methods: [POST]
+    options:
+        expose: true
+    path: "/{id}/update"

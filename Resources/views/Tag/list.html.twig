@@ -1,0 +1,25 @@
+{% extends '@ValouleloupIssue/Tag/base_tag.html.twig' %}
+
+{% block tag_list_badge %}
+    <span class="badge">{{ tags|length }}</span>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <a class="btn btn-success pull-right" href="{{ path('add_tag') }}">Add Tag</a>
+    </div>
+
+    <div class="row">
+        <div class="panel panel-default list-elements">
+
+            <div class="panel-heading"> List tags </div>
+            <div class="panel-body">
+                {% for tag in tags %}
+                    <div class="single-element">
+                        <a href="{{ path('list_issue_tag', {'id': tag.id}) }}" class="label label-warning" style="background-color:#{{ tag.color }};">{{ tag.label }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

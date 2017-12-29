@@ -1,0 +1,20 @@
+list_themes:
+    defaults: { _controller: "ValouleloupIssueBundle:Theme:list" }
+    methods: [GET]
+    options:
+        expose: true
+    path: ""
+
+add_theme:
+    defaults: { _controller: "ValouleloupIssueBundle:Theme:new" }
+    methods: [GET]
+    options:
+        expose: true
+    path: "/new"
+
+create_theme:
+    defaults: { _controller: "ValouleloupIssueBundle:Theme:create" }
+    methods: [POST]
+    options:
+        expose: true
+    path: "/create"
