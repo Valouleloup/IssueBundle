@@ -1,0 +1,19 @@
+{% macro navigation(list) %}
+    <div class="row text-center">
+        {% if list.iterator is defined %}
+            {% if list.count > list.query.maxResults %}
+                <ul class="pagination">
+                    {% set nbPages = (list.count / list.query.maxResults)|round(0, 'ceil') %}
+                    {% set currentPage = (list.query.firstResult / list.query.maxResults) + 1 %}
+                    {% for i in 1..nbPages %}
+                        <li class="{% if i == currentPage %}active{% endif %}">
+                            <a href="{{ app.request.pathInfo ~ '?page=' ~ i }}">{{ i }}
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endmacro %}

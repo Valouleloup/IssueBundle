@@ -21,7 +21,14 @@ list_issue:
     methods: [GET]
     options:
         expose: true
-    path: ""
+    path: "list"
+
+list_issue_search:
+    defaults: { _controller: "ValouleloupIssueBundle:Issue:listSearch" }
+    methods: [POST]
+    options:
+        expose: true
+    path: "list"
 
 list_issue_tag:
     defaults: { _controller: "ValouleloupIssueBundle:Issue:listTag" }
@@ -40,6 +47,15 @@ list_issue_theme:
     path: "/theme/{id}"
     requirements:
         id: \d+
+
+list_issue_elastic:
+    defaults: { _controller: "ValouleloupIssueBundle:Issue:listElastic" }
+    methods: [GET]
+    options:
+        expose: true
+    path: "/search/{terms}"
+    requirements:
+        id: \w+
 
 add_issue:
     defaults: { _controller: "ValouleloupIssueBundle:Issue:new" }

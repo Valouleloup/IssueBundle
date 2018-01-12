@@ -1,5 +1,9 @@
 {% extends '@ValouleloupIssue/base.html.twig' %}
 
+{% block current_top_navigation %}
+    <h4><a>Home</a> / <a>Themes</a></h4>
+{% endblock %}
+
 {% block body_nav_themes %}
     <li class="active">
         <a href="{{ path('list_themes') }}">Themes {% block theme_list_badge %}{% endblock %}</a>

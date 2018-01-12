@@ -1,3 +1,5 @@
+{% import '@ValouleloupIssue/paginate.html.twig' as paginate %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +7,7 @@
         <title>{% block title %}Issue Bundle{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('bundles/valouleloupissue/css/bootstrap.min.css') }}">
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
             <link href="{{ asset('bundles/valouleloupissue/css/styles.css') }}" rel="stylesheet">
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -14,14 +16,21 @@
         <!-- Header -->
         <header>
             <div class="container">
-                Header
+                <div class="col-sm-6 col-no-padding">
+                    Valouleloup Issue Bundle
+                </div>
+                <div class="col-sm-6 col-no-padding text-right">
+                    <span class="glyphicon glyphicon-user"></span> <a href="">{{ app.user.username }}</a>
+                </div>
             </div>
         </header>
 
         <!-- Top Body -->
         <div class="top-body">
             <div class="container">
-                <h4><a>Symfony</a> / <a><b>Symfony</b></a></h4>
+                {% block current_top_navigation %}
+                    <h4><a>Home</a></h4>
+                {% endblock %}
                 <ul class="nav nav-tabs" id="top-body">
                     {% block body_nav_themes %}<li><a href="{{ path('list_themes') }}">Themes</a></li>{% endblock %}
                     {% block body_nav_issues %}<li><a href="{{ path('list_issue') }}">Issues</a></li>{% endblock %}
@@ -34,6 +43,9 @@
         <!-- Body -->
         <div class="body container">
             {% block body %}
+            {% endblock %}
+
+            {% block paginate %}
             {% endblock %}
         </div>
 

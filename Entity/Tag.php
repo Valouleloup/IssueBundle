@@ -73,8 +73,6 @@ class Tag
     public function setIssues($issue)
     {
         $this->issues->add($issue);
-
-        $issue->setTags($this);
     }
 
     /**

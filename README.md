@@ -1,72 +1,70 @@
-Symfony Standard Edition
+Valouleloup Issue Bundle
 ========================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+This bundle provides an issue forum system on your symfony application.
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
-
-What's inside?
+Install
 --------------
 
-The Symfony Standard Edition is configured with the following defaults:
+Add ` valouleloup/issue-bundle ` to your ` composer.json ` file:
 
-  * An AppBundle you can use to start coding;
+` composer require valouleloup/issue-bundle `
 
-  * Twig as the only configured template engine;
+Register the bundle in app/AppKernel.php:
 
-  * Doctrine ORM/DBAL;
+```php
+public function registerBundles()
+    {
+        $bundles = [
+            ...
+            new Valouleloup\IssueBundle\ValouleloupIssueBundle(),
+            ...
+        ];
+    }
+```
 
-  * Swiftmailer;
+Configuration
+--------------
 
-  * Annotations enabled for everything.
+Configure your ` routing.yml ` file:
 
-It comes pre-configured with the following bundles:
+```yml
+valouleloup_issue:
+    resource: "@ValouleloupIssueBundle/Resources/config/routing.yml"
+    prefix:   /issue-bundle
+```
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+Add this configuration in your ` config.yml ` file and replace ` AppBundle\Entity\MyUser ` by your entity user :
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+```yml
+doctrine:
+    ...
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+    orm:
+        ...
+        resolve_target_entities:
+            Symfony\Component\Security\Core\User\UserInterface: AppBundle\Entity\MyUser
+```
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+Usage
+--------------
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
+You can now go to the url and enjoy the forum bundle :
 
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
+` myapplication.com/issue-bundle/themes `
 
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
+` myapplication.com/issue-bundle/issues/list `
 
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
+` myapplication.com/issue-bundle/tags `
 
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
+Examples
+--------------
 
-  * [**SensioGeneratorBundle**][13] (in dev env) - Adds code generation
-    capabilities
+You can find a demo project that use this bundle :
 
-  * [**WebServerBundle**][14] (in dev env) - Adds commands for running applications
-    using the PHP built-in web server
+  * [**TheIssue Project**][1]
 
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
 
 Enjoy!
 
-[1]:  https://symfony.com/doc/3.4/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.4/doctrine.html
-[8]:  https://symfony.com/doc/3.4/templating.html
-[9]:  https://symfony.com/doc/3.4/security.html
-[10]: https://symfony.com/doc/3.4/email.html
-[11]: https://symfony.com/doc/3.4/logging.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
-[14]: https://symfony.com/doc/current/setup/built_in_web_server.html
+[1]:  https://github.com/valentin-biig/forum

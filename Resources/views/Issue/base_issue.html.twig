@@ -1,5 +1,9 @@
 {% extends '@ValouleloupIssue/base.html.twig' %}
 
+{% block current_top_navigation %}
+    <h4><a>Home</a> / <a>Issues</a></h4>
+{% endblock %}
+
 {% block body_nav_issues %}
     <li class="active">
         <a href="{{ path('list_issue') }}">Issues {% block issue_list_badge %}{% endblock %}</a>

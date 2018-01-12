@@ -9,7 +9,7 @@ use Valouleloup\IssueBundle\Entity\Theme;
 class IssueRepository extends EntityRepository
 {
     /**
-     * @return array
+     * @return \Doctrine\ORM\Query
      */
     public function findAllMostRecent()
     {
@@ -17,11 +17,13 @@ class IssueRepository extends EntityRepository
             ->orderBy('i.updatedAt', 'DESC')
         ;
 
-        return $qb->getQuery()->getResult();
+        return $qb->getQuery();
     }
 
     /**
-     * @return array
+     * @param Tag $tag
+     *
+     * @return \Doctrine\ORM\Query
      */
     public function findByTag(Tag $tag)
     {
@@ -32,11 +34,13 @@ class IssueRepository extends EntityRepository
             ->orderBy('i.updatedAt', 'DESC')
         ;
 
-        return $qb->getQuery()->getResult();
+        return $qb->getQuery();
     }
 
     /**
-     * @return array
+     * @param Theme $theme
+     *
+     * @return \Doctrine\ORM\Query
      */
     public function findByTheme(Theme $theme)
     {
@@ -47,6 +51,22 @@ class IssueRepository extends EntityRepository
             ->orderBy('i.updatedAt', 'DESC')
         ;
 
-        return $qb->getQuery()->getResult();
+        return $qb->getQuery();
+    }
+
+    /**
+     * @param array $ids
+     *
+     * @return \Doctrine\ORM\Query
+     */
+    public function findByListId(array $ids)
+    {
+        $qb = $this->createQueryBuilder('i')
+            ->where('i.id IN (:ids)')
+            ->setParameter('ids', $ids)
+            ->orderBy('i.updatedAt', 'DESC')
+        ;
+
+        return $qb->getQuery();
     }
 }

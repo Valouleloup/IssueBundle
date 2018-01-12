@@ -3,8 +3,11 @@ body{
 }
 header{
     background:#24292e;
-    color:#bbb;
+    color:#ddd;
     padding:10px;
+}
+header a{
+    color:#ddd;
 }
 form label{
     margin-right:10px;
@@ -22,6 +25,12 @@ textarea{
     border-radius:3px;
     border:1px solid #ddd;
     background-color:#FCFCFC;
+}
+label{
+    font-weight: 400;
+}
+.col-no-padding{
+    padding:0 !important;
 }
 .top-body{
     background:#fafbfc;
@@ -54,6 +63,7 @@ textarea{
 .badge{
     background-color: #ddd;
     color:#555;
+    font-weight:400;
 }
 .top-body .nav-tabs li.active a{
     box-shadow:0 3px 0 0 #e36209 inset;
@@ -103,8 +113,42 @@ textarea{
 .list-elements .glyphicon{
     top:2px
 }
+.header-issue{
+    padding-bottom:20px;
+}
+.issue-state{
+    float:left;
+    padding-top:8px;
+    width:26px;
+}
+.issue-state-open{
+    color:#63ad63;
+}
+.issue-state-closed{
+    color:#cc6868;
+}
+.issue-title{
+    float:left;
+}
 .post-left img{
     max-width:60px;
+    border:1px solid #E0E0E0;
+}
+.elastic-submit{
+    display:none;
+}
+.elastic-search-input{
+    padding:4px 10px;
+}
+.panel-body table{
+    margin:8px 0;
+}
+.panel-body table tr:nth-child(2n){
+    background-color:#f6f8fa;
+}
+.panel-body table td, .panel-body table th{
+    border:1px solid #ddd;
+    padding:6px 13px;
 }
 footer{
     font-size:12px;

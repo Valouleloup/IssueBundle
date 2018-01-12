@@ -24,5 +24,8 @@ class ValouleloupIssueExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        $container->setParameter('valouleloup_issue.elastic.hostname', $config['elastic']['hostname']);
+        $container->setParameter('valouleloup_issue.elastic.port', $config['elastic']['port']);
     }
 }

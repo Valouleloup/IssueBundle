@@ -6,3 +6,23 @@ services:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
             - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+    val_issue.component.elastic.client_factory:
+        class: Valouleloup\IssueBundle\Component\Elasticsearch\ClientFactory
+        arguments:
+            - '%valouleloup_issue.elastic.hostname%'
+            - '%valouleloup_issue.elastic.port%'
+
+    val_issue.component.elastic.client:
+        class: Elasticsearch\Client
+        factory: 'val_issue.component.elastic.client_factory:createClient'
+
+    val_issue.component.elastic.post.manager:
+        class: Valouleloup\IssueBundle\Component\Elasticsearch\Post\PostManager
+        arguments:
+            - '@val_issue.component.elastic.client'
+
+    val_issue.component.pagination.paginator:
+            class: Valouleloup\IssueBundle\Component\Pagination\Paginator
+            arguments:
+                - '@request_stack'
